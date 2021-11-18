@@ -1,0 +1,14 @@
+﻿{
+  "name": "Desert",
+  "temperatureRange":  "60..100",
+  "humidityRange":  "0..20",
+  "populationDensity": 0,
+  "tilesets": [
+    "grassland1"
+  ],
+  "heightTiles": [
+    "desert_sand1",
+    "desert_sand2",
+    "water0"
+  ]
+}

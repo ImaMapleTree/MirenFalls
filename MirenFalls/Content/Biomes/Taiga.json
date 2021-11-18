@@ -1,0 +1,14 @@
+﻿{
+  "name": "Taiga",
+  "temperatureRange":  "0..32",
+  "humidityRange":  "0..100",
+  "populationDensity": 0,
+  "tilesets": [
+    "grassland1"
+  ],
+  "heightTiles": [
+    "taiga_snow",
+    "taiga_grass",
+    "ice0"
+  ]
+}
