@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MirenFalls.Internal.Utils {
+
+    // Noise generator which extends the noise functions and implements some control variables that are initialized at class creation
+    // important part of seeding as the actual "random" aspect of the maps comes here
+
     public static class NoiseGenerator {
         public class Noise {
             protected float scale;

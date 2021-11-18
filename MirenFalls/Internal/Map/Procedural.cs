@@ -7,6 +7,18 @@ namespace MirenFalls.Internal.Map {
     using Internal.Graphics;
     using static MirenFalls.Internal.Utils.NoiseGenerator;
 
+    // Class incharge of initial map generator and generating new areas of the map.
+    // TODO: Implement concurrent-procedural generation (Probably what I'm working on next)
+    /*
+     * Additionally:
+     * There's 2 options as to how we're going to be saving already generated chunks
+     * Option 1: Never save the procedural generation but instead save changes to the map and then re-load the changes when entering area
+     * Option 2: Save both the procedural generation and states on the map
+     * 
+     * There's going to be a lot of logic behind how systems work while they're "unloaded" because areas should still development even after the player leaves the surroundings
+     * 
+     */
+
     public static class Procedural {
 
         private const float scale = 100.37f; //good viewing but bad for game

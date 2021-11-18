@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace MirenFalls.Internal {
 
+    // Static resource manager and my solution to passing the default ContentManager in a static way.
+    // Some niche functions such as loading from JSON, will also contain static references to loaded content initialized from the main game body. (Main.cs)
+
     public static class Resources {
 
         public static ContentManager content = null;

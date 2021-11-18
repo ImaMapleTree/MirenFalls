@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MirenFalls.Internal.Utils {
-    class ExtraMath {
+
+    // A math utils class that aims to copy a bunch of Unity Math functions
+
+    public static class ExtraMath {
 
         public static float Clamp01(float value) {
             if (value < 0F)

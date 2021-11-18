@@ -1,0 +1,17 @@
+﻿Hello Hello! Here's my TODO list that I think is a good idea if we remember to keep this updated I'll start ^-^
+
+---------------------------------------------------------------------
+TODO:
+-Streamline a format for the TODO file beacuse formatting is nice
+
+-Determine which PerlinNoise function is more efficient (ImprovedNoise vs Noise2D)
+
+-Write more code docs because I didn't do any of that lol (sorry)
+
+-Fix Utils.cs
+
+-Name and define "tile assets" (multi-tiles) because I don't know what to call them and it's bothering me
+
+-Better organize skeleton? I think the skeleton isn't bad but you're right now an outsider so LMK if there's anything that can be improved... it's a bit annoying to improve though
+because visual studio doesn't refactor the namespace when moving files (from what I can tell) basically, if you do end up moving it make sure you fix the namespace and then errors in the compiler
+--------------------------------------------------------------------

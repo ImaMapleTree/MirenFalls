@@ -10,6 +10,7 @@ namespace MirenFalls.Internal.Utils {
 
         // A simple range class that allows for inclusive or exclusive ranges based on the constructor
         // Useful for quickly comparing if a value is between two set numbers
+        // Actually a terribly designed class and I'm going to delete the whole Utils class later
         public class Range {
             public dynamic min;
             public dynamic max;

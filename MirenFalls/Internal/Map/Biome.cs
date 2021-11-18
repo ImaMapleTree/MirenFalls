@@ -6,6 +6,13 @@ using MirenFalls.Internal.Map.Collections;
 using System.IO;
 
 namespace MirenFalls.Internal.Map {
+
+    // Biome class - crucial part of map generation
+    /* Roles:
+     * Defines ground tiles
+     * Defines "tile assets"
+     */
+    
     public class Biome {
         public string name;
         public Range temperatureRange;
@@ -30,9 +37,6 @@ namespace MirenFalls.Internal.Map {
 
         public HeightTile GetHeightTile(float height) {
             HeightTile match = heightTiles.Find(tile => tile.heightRange.InRange(height));
-            //foreach (HeightTile ht in heightTiles) {
-              //  Debug.Log(name + " | " + match + " | " + height + " | " + ht.heightRange.InRange(height) + " | min: " + ht.heightRange.min + " max: " + ht.heightRange.max);
-            //}
             match = match != null ? match : heightTiles[0];
             return match;
         }

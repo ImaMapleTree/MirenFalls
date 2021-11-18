@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MirenFalls.Internal.Utils {
+
+    // An additional noise function that generates from [-1, 1]
+    // Likely better than Noise2D but requires some amount of testing, whichever one is less performance efficient should be deleted
+
     public static class ImprovedNoise {
         #region Noise functions
 
