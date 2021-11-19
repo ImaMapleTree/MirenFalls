@@ -6,6 +6,7 @@ using MirenFalls.Internal;
 using MirenFalls.Internal.Map;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
+using MirenFalls.Internal._TEST;
 
 namespace MirenFalls {
 
@@ -27,12 +28,14 @@ namespace MirenFalls {
         private MouseState clickState;
         private Random rng = new Random();
 
+        Player testPlayer;
+
         public Main() {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            map = new GameMap(1000, 1000); // NOTE: 1000 x 1000 is REALLY big but it's for testing purposes
+            map = new GameMap(100, 100); // NOTE: 1000 x 1000 is REALLY big but it's for testing purposes
         }
 
         protected override void Initialize() {
@@ -44,15 +47,16 @@ namespace MirenFalls {
             _graphics.ApplyChanges();
             var ViewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, width, height);
             _camera = new OrthographicCamera(ViewportAdapter);
-            _camera.ZoomOut(0.955f); // Good settings for viewing the whole map
-            _camera.Move(new Vector2(5000, 8000));
+            //_camera.ZoomOut(0.955f); // Good settings for viewing the whole map
+            //_camera.Move(new Vector2(5000, 8000));
             //_camera.ZoomIn(1.3f);
             
 
-            Resources.Initialize(Content); // Passes the content manager to Resources to allow for loading from the content manager
+            Resources.Initialize(Content, _graphics.GraphicsDevice); // Passes the content manager to Resources to allow for loading from the content manager
 
 
             map.Initialize("rawr");
+            testPlayer = new Player("sophia", new Vector2(50, 50));
             base.Initialize();
         }
 
@@ -74,6 +78,8 @@ namespace MirenFalls {
 
             clickState = currentState;
 
+            testPlayer.MoveUpdate(gameTime, Keyboard.GetState());
+
             // TODO: Add your update logic here
             base.Update(gameTime);
         }
@@ -91,7 +97,7 @@ namespace MirenFalls {
             Window.Title = fps;
 
             map.Draw(_spriteBatch);
-            
+            testPlayer.Draw(_spriteBatch);
             
             _spriteBatch.End();
             

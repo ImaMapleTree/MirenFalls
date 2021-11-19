@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Monogame.Extended" Version="3.8.0" />
+    <PackageReference Include="MonoGame.Extended.Animations" Version="3.7.0" />
     <PackageReference Include="MonoGame.Extended.Content.Pipeline" Version="3.8.0" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
   </ItemGroup>
@@ -34,6 +35,9 @@
     <ProjectReference Include="..\MFPExtension\MFPExtension.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Content\Animations\Characters\sophia.sf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Update="Content\Biomes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

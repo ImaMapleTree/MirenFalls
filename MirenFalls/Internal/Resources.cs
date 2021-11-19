@@ -4,6 +4,8 @@ using System.Text.Json;
 using System.IO;
 using MFPExtension.Extensions.Biome;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using MirenFalls.Internal.Utils;
 
 namespace MirenFalls.Internal {
 
@@ -13,10 +15,12 @@ namespace MirenFalls.Internal {
     public static class Resources {
 
         public static ContentManager content = null;
+        public static GraphicsDevice graphicsDevice;
         public static List<MFPBiome> biomes;
 
-        public static void Initialize(ContentManager IC) {
+        public static void Initialize(ContentManager IC, GraphicsDevice device) {
             content = IC;
+            graphicsDevice = device;
         }
 
         public static T loadContent<T>(string filename) {
