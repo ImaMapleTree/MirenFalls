@@ -1,5 +1,4 @@
-﻿using MFPExtension.Extensions.Biome;
-using MirenFalls.Internal.Utils;
+﻿using MirenFalls.Internal.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +9,7 @@ namespace MirenFalls.Internal.Map {
 
     public class BiomeGenerator {
 
-        List<Biome> biomes = Resources.loadAllContent<MFPBiome>("Biomes").ConvertAll<Biome>(biome => new Biome(biome));
+        List<Biome> biomes = Resources.loadAllContent<Biome>("Biomes");
 
         PerlinNoise temperatureNoise;
         PerlinNoise humidityNoise;

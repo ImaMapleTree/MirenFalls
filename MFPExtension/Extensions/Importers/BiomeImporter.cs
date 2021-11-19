@@ -1,6 +1,7 @@
-﻿using Microsoft.Xna.Framework.Content.Pipeline;
+﻿using MFPExtension.Extensions.Shells;
+using Microsoft.Xna.Framework.Content.Pipeline;
 
-namespace MFPExtension.Extensions.Biome {
+namespace MFPExtension.Extensions.Importers {
 
     [ContentImporter(".json", DefaultProcessor = "BiomeProcessor", DisplayName = "BiomeImporter - MFPE")]
     public class BiomeImporter : ContentImporter<MFPBiome> {

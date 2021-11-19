@@ -32,9 +32,6 @@
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFPExtension\MFPExtension.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Content\Animations\Characters\sophia.sf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
@@ -86,11 +83,19 @@
     <None Update="Content\Biomes\HeightTiles\grass0.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Content\Tiles\ball.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\Tiles\grass2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\Tiles\sand0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Biomes\HeightTiles\Textures\" />
     <Folder Include="Content\Tilesets\" />
-    <Folder Include="Content\Tiles\" />
   </ItemGroup>
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>

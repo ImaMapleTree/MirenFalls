@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
-using MFPExtension.Extensions.Biome;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MirenFalls.Internal.Utils;
+using MirenFalls.Internal.Map;
 
 namespace MirenFalls.Internal {
 
@@ -16,7 +16,7 @@ namespace MirenFalls.Internal {
 
         public static ContentManager content = null;
         public static GraphicsDevice graphicsDevice;
-        public static List<MFPBiome> biomes;
+        public static List<Biome> biomes;
 
         public static void Initialize(ContentManager IC, GraphicsDevice device) {
             content = IC;

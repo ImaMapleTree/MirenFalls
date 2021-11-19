@@ -316,3 +316,8 @@
 /processor:BiomeProcessor
 /build:Biomes/Taiga.json
 
+#begin Tiles/ball.png
+/importer:CompressibleTextureImporter
+/processor:CompressibleTextureProcessor
+/build:Tiles/ball.png
+

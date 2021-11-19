@@ -1,15 +1,13 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace MFPExtension.Extensions.Spritesheet {
+namespace MFPExtension.Extensions.Shells {
     public class SpriteSheetShell {
         public SpriteSheetShell() { }
-        public TextureAtlasShell textureAtlas { set; get; }
-        public Dictionary<string, SpriteSheetAnimationCycle> cycles { set; get; }
+        public TextureAtlasShell textureAtlas { get; set; }
+        public Dictionary<string, SpriteSheetAnimationCycle> cycles { get; set; }
 
         public SpriteSheet Identify(GraphicsDevice gd) {
             SpriteSheet spriteSheet = new SpriteSheet();

@@ -1,7 +1,5 @@
-﻿using MFPExtension.Extensions.Biome;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MirenFalls.Internal.Utils;
-using static MirenFalls.Internal.Utils.Utils;
 using MirenFalls.Internal.Map.Collections;
 using System.IO;
 
@@ -14,18 +12,11 @@ namespace MirenFalls.Internal.Map {
      */
     
     public class Biome {
-        public string name;
-        public Range temperatureRange;
-        public Range humidityRange;
-        public List<Tileset> tilesets;
-        public List<HeightTile> heightTiles;
-
-        public Biome(MFPBiome mfpb) {
-            name = mfpb.name;
-            temperatureRange = new Range(mfpb.temperatureRange);
-            humidityRange = new Range(mfpb.humidityRange);
-            heightTiles = mfpb.heightTiles.ConvertAll(tile => Adapters.JsonToHeightTile(Resources.loadJson<Dictionary<string, string>>(Path.Combine("Content/Biomes/HeightTiles", tile+".json"))));
-        }
+        public string name { get; set; }
+        public Range temperatureRange { get; set; }
+        public Range humidityRange { get; set; }
+        public List<Tileset> tilesets { set; get;  }
+        public List<HeightTile> heightTiles { get; set; }
 
         public bool IsValidTemperature(float temperature) {
             return temperatureRange.InRange(temperature);

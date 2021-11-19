@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using MFPExtension.Extensions.Biome;
 using Microsoft.Xna.Framework.Content.Pipeline;
 
-namespace MFPExtension.Extensions.Json {
+namespace MFPExtension.Extensions.Importers {
 
     [ContentImporter(".json", DefaultProcessor = "JsonProcessor", DisplayName = "Json Processor - MFPE")]
     public class JsonImporter : ContentImporter<Dictionary<string, dynamic>> {

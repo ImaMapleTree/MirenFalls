@@ -1,5 +1,12 @@
 ﻿Hello Hello! Here's my TODO list that I think is a good idea if we remember to keep this updated I'll start ^-^
 
+IMPORTANT TODO & ISSUES:
+--------------------------------------------------------------------
+11/19/2021 - 4:36PM: FIX MAIN.CS
+Issue:
+CompressibleTexture is not loading from Content.Load due to a null reference I've done extensive debugging but have no clue where this is being thrown. And I am giving up for now.
+
+
 ---------------------------------------------------------------------
 TODO:
 -Streamline a format for the TODO file beacuse formatting is nice
@@ -23,7 +30,7 @@ because visual studio doesn't refactor the namespace when moving files (from wha
 --------------------------------------------------------------------
 
 --------------------------------------------------------------------
-10/19/2021 - 4:00AM
+11/19/2021 - 4:00AM
 COMPLAINTS:
 New section of the TODO file! The complaints sections (hooray!)
 

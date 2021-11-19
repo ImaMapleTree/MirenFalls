@@ -7,6 +7,8 @@ using MirenFalls.Internal.Map;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
 using MirenFalls.Internal._TEST;
+using MirenFalls.Internal.Graphics;
+using MirenFalls.Internal.Core;
 
 namespace MirenFalls {
 
@@ -29,6 +31,9 @@ namespace MirenFalls {
         private Random rng = new Random();
 
         Player testPlayer;
+        CompressibleTexture testTexture1;
+        Texture2D testTexture2;
+        CompressibleTexture testTexture3;
 
         public Main() {
             _graphics = new GraphicsDeviceManager(this);
@@ -55,14 +60,21 @@ namespace MirenFalls {
             Resources.Initialize(Content, _graphics.GraphicsDevice); // Passes the content manager to Resources to allow for loading from the content manager
 
 
-            map.Initialize("rawr");
-            testPlayer = new Player("sophia", new Vector2(50, 50));
+
+
+            //map.Initialize("rawr");
+            //testPlayer = new Player("sophia", new Vector2(50, 50));
+
+            Pipeline.Initialize(_graphics.GraphicsDevice);
             base.Initialize();
         }
 
         protected override void LoadContent() {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //testTexture1 = new CompressibleTexture("Content/Tiles/grass2.png");
+            testTexture2 = Texture2D.FromFile(this.GraphicsDevice, "Content/Tiles/ball.png");
+            testTexture3 = Content.Load<CompressibleTexture>("Tiles/ball");
             // TODO: use this.Content to load your game content here
         }
 
@@ -78,7 +90,7 @@ namespace MirenFalls {
 
             clickState = currentState;
 
-            testPlayer.MoveUpdate(gameTime, Keyboard.GetState());
+            //testPlayer.MoveUpdate(gameTime, Keyboard.GetState());
 
             // TODO: Add your update logic here
             base.Update(gameTime);
@@ -90,15 +102,18 @@ namespace MirenFalls {
             _frameCounter.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             // TODO: Add your drawing code here
-            _spriteBatch.Begin(transformMatrix: _camera.GetViewMatrix());
+            //_spriteBatch.Begin(transformMatrix: _camera.GetViewMatrix());
+            _spriteBatch.Begin();
 
             var fps = string.Format("FPS: {0}", _frameCounter.AverageFramesPerSecond);
 
             Window.Title = fps;
 
-            map.Draw(_spriteBatch);
-            testPlayer.Draw(_spriteBatch);
-            
+            //map.Draw(_spriteBatch);
+            //testPlayer.Draw(_spriteBatch);
+            _spriteBatch.Draw(testTexture1, new Vector2(5, 5), Color.White);
+            //_spriteBatch.Draw(testTexture2, new Vector2(50, 50), Color.White);
+
             _spriteBatch.End();
             
 

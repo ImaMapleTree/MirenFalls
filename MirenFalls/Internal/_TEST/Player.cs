@@ -1,5 +1,4 @@
-﻿using MFPExtension.Extensions.Spritesheet;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MirenFalls.Internal.Utils;
@@ -24,7 +23,7 @@ namespace MirenFalls.Internal._TEST {
         string lastDirection = "South";
 
         public Player(string name_id, Vector2 position) {
-            SpriteSheet spriteSheet = Resources.loadContent<SpriteSheetShell>("Animations/Characters/sophia").Identify(Resources.graphicsDevice);
+            SpriteSheet spriteSheet = Resources.loadContent<SpriteSheet>("Animations/Characters/sophia");
 
             Debug.Log(spriteSheet.Cycles);
 

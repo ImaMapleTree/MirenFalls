@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using MFPExtension.Extensions.Biome;
 using Microsoft.Xna.Framework.Content.Pipeline;
 
 namespace MFPExtension.Extensions.Json {

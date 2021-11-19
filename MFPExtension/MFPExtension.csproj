@@ -16,4 +16,7 @@
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MirenFalls\MirenFalls.csproj" />
+  </ItemGroup>
 </Project>

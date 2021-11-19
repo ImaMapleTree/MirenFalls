@@ -1,8 +1,6 @@
-﻿using Microsoft.Xna.Framework.Content.Pipeline;
-using MonoGame.Extended.Sprites;
-using System.IO;
-using System.Text.Json;
-namespace MFPExtension.Extensions.Spritesheet {
+﻿using MFPExtension.Extensions.Shells;
+using Microsoft.Xna.Framework.Content.Pipeline;
+namespace MFPExtension.Extensions.Importers {
 
     [ContentImporter(".sf", DefaultProcessor = "SpriteSheetProcessor", DisplayName = "SpriteSheetImporter - MFPE")]
     public class SpriteSheetImporter : ContentImporter<SpriteSheetShell> {
