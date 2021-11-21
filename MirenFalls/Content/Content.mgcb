@@ -30,6 +30,11 @@
 /processor:BiomeProcessor
 /build:Biomes/Grassland.json
 
+#begin Biomes/HeightTiles/desert_sand1.json
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/build:Biomes/HeightTiles/desert_sand1.json
+
 #begin Biomes/HeightTiles/Textures/dirt0.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -317,7 +322,7 @@
 /build:Biomes/Taiga.json
 
 #begin Tiles/ball.png
-/importer:CompressibleTextureImporter
-/processor:CompressibleTextureProcessor
+/importer:TileImporter
+/processor:TileProcessor
 /build:Tiles/ball.png
 

@@ -14,7 +14,6 @@ namespace MirenFalls.Internal.Graphics {
         public string path {
             get { return _path; }
             set {
-                Debug.Log("help!");
                 Texture2D texture = Texture2D.FromFile(Pipeline.graphicsDevice, value);
                 
                 this._path = value;
@@ -22,7 +21,6 @@ namespace MirenFalls.Internal.Graphics {
                 this.CopyPropertiesTo<Texture, CompressibleTexture>(texture, this);
                 texture.GetData<byte>(data);
                 this.SetData(data);
-                Debug.Log(data.Length);
             }
         }
 

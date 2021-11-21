@@ -12,14 +12,18 @@ namespace MirenFalls.Internal.Graphics {
     }
 
     public class Tile {
-        public Texture2D texture;
+        public CompressibleTexture texture;
         public Collision collision;
         public int width;
         public int height;
 
         public Vector2 size;
 
-        public Tile(Texture2D texture, Collision collision) {
+        public Tile() {
+        }
+
+
+        public Tile(CompressibleTexture texture, Collision collision) {
             this.texture = texture;
             this.collision = collision;
             this.width = this.texture.Width;

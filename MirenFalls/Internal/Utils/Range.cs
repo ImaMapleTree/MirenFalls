@@ -25,8 +25,8 @@ namespace MirenFalls.Internal.Utils {
             if (!rangeString.Contains(",")) throw new RangeParseException();
             rangeString = rangeString.Replace(", ", ",").Replace(",", ", "); // Converts ", " -> "," -> ", " to ensure uniformity
             string[] split = rangeString.Split(", ");
-            if (!split[0].Contains("[") || !split[0].Contains("(") || !split[1].Contains("]") || !split[1].Contains(")")) throw new RangeParseException();
-            return new Range(float.Parse(split[0][1..]), float.Parse(split[1][0..^2]), split[0][0].Equals("["), split[1][^1].Equals("]"));
+            if ((!split[0].Contains("[") && !split[0].Contains("(")) || (!split[1].Contains("]") && !split[1].Contains(")"))) throw new RangeParseException();
+            return new Range(float.Parse(split[0][1..]), float.Parse(split[1][0..^1]), split[0][0].Equals("["), split[1][^1].Equals("]"));
         }
 
         public override string ToString() {

@@ -33,7 +33,7 @@ namespace MirenFalls {
         Player testPlayer;
         CompressibleTexture testTexture1;
         Texture2D testTexture2;
-        CompressibleTexture testTexture3;
+        Tile testTexture3;
 
         public Main() {
             _graphics = new GraphicsDeviceManager(this);
@@ -74,7 +74,7 @@ namespace MirenFalls {
 
             //testTexture1 = new CompressibleTexture("Content/Tiles/grass2.png");
             testTexture2 = Texture2D.FromFile(this.GraphicsDevice, "Content/Tiles/ball.png");
-            testTexture3 = Content.Load<CompressibleTexture>("Tiles/ball");
+            testTexture3 = Content.Load<Tile>("Tiles/ball");
             // TODO: use this.Content to load your game content here
         }
 
@@ -111,7 +111,7 @@ namespace MirenFalls {
 
             //map.Draw(_spriteBatch);
             //testPlayer.Draw(_spriteBatch);
-            _spriteBatch.Draw(testTexture1, new Vector2(5, 5), Color.White);
+            _spriteBatch.Draw(testTexture3.texture, new Vector2(5, 5), Color.White);
             //_spriteBatch.Draw(testTexture2, new Vector2(50, 50), Color.White);
 
             _spriteBatch.End();

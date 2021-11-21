@@ -17,7 +17,7 @@ namespace MirenFalls.Internal.Utils {
         }
 
         public static HeightTile JsonToHeightTile(Dictionary<string, string> dict) {
-            Tile tile = new Tile(Resources.loadContent<Texture2D>(Path.Combine("Biomes/HeightTiles/Textures", dict["name"])), Collision.None);
+            Tile tile = new Tile(Resources.loadContent<CompressibleTexture>(Path.Combine("Biomes/HeightTiles/Textures", dict["name"])), Collision.None);
             Range heightRange = Range.FromString(dict["heightRange"]);
             return new HeightTile(tile, heightRange);
         }

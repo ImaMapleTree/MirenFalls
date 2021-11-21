@@ -8,6 +8,9 @@ namespace MirenFalls.Internal.Map {
         public Tile tile { get; set; }
         public Range heightRange { get; set; }
 
+        public HeightTile() {
+        }
+
         public HeightTile(Tile t, Range hr) {
             this.tile = t;
             this.heightRange = hr;
