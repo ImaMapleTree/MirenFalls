@@ -1,5 +1,4 @@
-﻿using MFPExtension.Extensions.Shells;
-using Microsoft.Xna.Framework.Content.Pipeline;
+﻿using Microsoft.Xna.Framework.Content.Pipeline;
 using MirenFalls.Internal.Core;
 using MirenFalls.Internal.Graphics;
 

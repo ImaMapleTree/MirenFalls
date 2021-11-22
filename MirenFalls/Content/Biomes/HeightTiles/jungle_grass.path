@@ -1,0 +1,5 @@
+﻿{
+  "tileTexture": "jungle_grass.png",
+  "directory": "Textures",
+  "range": "[0.45, 1]"
+}

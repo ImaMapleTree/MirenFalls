@@ -1,14 +1,15 @@
 ﻿{
   "name": "Grassland",
-  "temperatureRange":  "33..70",
-  "humidityRange":  "0..60",
+  "temperatureRange":  "[33, 70]",
+  "humidityRange":  "[0, 60]",
   "populationDensity": 0,
   "tilesets": [
     "grassland1"
   ],
   "heightTiles": [
     "grassland_grass",
-    "grassland_dirt",
-    "water0"
+    "grassland_sand",
+    "grassland_water",
+    "ocean_water"
   ]
 }

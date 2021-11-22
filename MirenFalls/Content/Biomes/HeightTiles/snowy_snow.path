@@ -1,0 +1,5 @@
+﻿{
+  "tileTexture": "normal_snow.png",
+  "directory": "Textures",
+  "range": "[0.35, 1]"
+}

@@ -30,12 +30,73 @@
 /processor:BiomeProcessor
 /build:Biomes/Grassland.json
 
-#begin Biomes/HeightTiles/desert_sand1.json
+#begin Biomes/HeightTiles/desert_sand.path
 /importer:HeightTileImporter
 /processor:HeightTileProcessor
-/build:Biomes/HeightTiles/desert_sand1.json
+/processorParam:HeightRange=[0.45, 1]
+/build:Biomes/HeightTiles/desert_sand.path
 
-#begin Biomes/HeightTiles/Textures/dirt0.png
+#begin Biomes/HeightTiles/desert_water.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.3, 0.45]
+/build:Biomes/HeightTiles/desert_water.path
+
+#begin Biomes/HeightTiles/grassland_grass.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.45, 1]
+/build:Biomes/HeightTiles/grassland_grass.path
+
+#begin Biomes/HeightTiles/grassland_sand.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.35, 0.45]
+/build:Biomes/HeightTiles/grassland_sand.path
+
+#begin Biomes/HeightTiles/grassland_water.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.3, 0.35]
+/build:Biomes/HeightTiles/grassland_water.path
+
+#begin Biomes/HeightTiles/jungle_grass.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.45, 1]
+/build:Biomes/HeightTiles/jungle_grass.path
+
+#begin Biomes/HeightTiles/jungle_sand.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.35, 0.45]
+/build:Biomes/HeightTiles/jungle_sand.path
+
+#begin Biomes/HeightTiles/jungle_water.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.3, 0.35]
+/build:Biomes/HeightTiles/jungle_water.path
+
+#begin Biomes/HeightTiles/ocean_water.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0, 0.3]
+/build:Biomes/HeightTiles/ocean_water.path
+
+#begin Biomes/HeightTiles/snowy_ice.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.3, 0.35]
+/build:Biomes/HeightTiles/snowy_ice.path
+
+#begin Biomes/HeightTiles/snowy_snow.path
+/importer:HeightTileImporter
+/processor:HeightTileProcessor
+/processorParam:HeightRange=[0.35, 1]
+/build:Biomes/HeightTiles/snowy_snow.path
+
+#begin Biomes/HeightTiles/Textures/desert_water.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -45,9 +106,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/dirt0.png
+/build:Biomes/HeightTiles/Textures/desert_water.png
 
-#begin Biomes/HeightTiles/Textures/grass0.png
+#begin Biomes/HeightTiles/Textures/ice.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -57,9 +118,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass0.png
+/build:Biomes/HeightTiles/Textures/ice.png
 
-#begin Biomes/HeightTiles/Textures/grass1.png
+#begin Biomes/HeightTiles/Textures/jungle_grass.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -69,9 +130,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass1.png
+/build:Biomes/HeightTiles/Textures/jungle_grass.png
 
-#begin Biomes/HeightTiles/Textures/grass2.png
+#begin Biomes/HeightTiles/Textures/lake_water.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -81,9 +142,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass2.png
+/build:Biomes/HeightTiles/Textures/lake_water.png
 
-#begin Biomes/HeightTiles/Textures/grass3.png
+#begin Biomes/HeightTiles/Textures/normal_grass.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -93,9 +154,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass3.png
+/build:Biomes/HeightTiles/Textures/normal_grass.png
 
-#begin Biomes/HeightTiles/Textures/grass4.png
+#begin Biomes/HeightTiles/Textures/normal_sand.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -105,9 +166,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass4.png
+/build:Biomes/HeightTiles/Textures/normal_sand.png
 
-#begin Biomes/HeightTiles/Textures/grass5.png
+#begin Biomes/HeightTiles/Textures/normal_snow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -117,9 +178,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass5.png
+/build:Biomes/HeightTiles/Textures/normal_snow.png
 
-#begin Biomes/HeightTiles/Textures/grass6.png
+#begin Biomes/HeightTiles/Textures/ocean_water.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -129,9 +190,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/grass6.png
+/build:Biomes/HeightTiles/Textures/ocean_water.png
 
-#begin Biomes/HeightTiles/Textures/ice0.png
+#begin Biomes/HeightTiles/Textures/swamp_water.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -141,175 +202,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/ice0.png
-
-#begin Biomes/HeightTiles/Textures/sand0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/sand0.png
-
-#begin Biomes/HeightTiles/Textures/sand1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/sand1.png
-
-#begin Biomes/HeightTiles/Textures/sand2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/sand2.png
-
-#begin Biomes/HeightTiles/Textures/sand3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/sand3.png
-
-#begin Biomes/HeightTiles/Textures/sand4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/sand4.png
-
-#begin Biomes/HeightTiles/Textures/sand5.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/sand5.png
-
-#begin Biomes/HeightTiles/Textures/snow0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/snow0.png
-
-#begin Biomes/HeightTiles/Textures/snow1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/snow1.png
-
-#begin Biomes/HeightTiles/Textures/snow2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/snow2.png
-
-#begin Biomes/HeightTiles/Textures/water0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/water0.png
-
-#begin Biomes/HeightTiles/Textures/water1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/water1.png
-
-#begin Biomes/HeightTiles/Textures/water2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/water2.png
-
-#begin Biomes/HeightTiles/Textures/water3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/water3.png
-
-#begin Biomes/HeightTiles/Textures/water4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Biomes/HeightTiles/Textures/water4.png
+/build:Biomes/HeightTiles/Textures/swamp_water.png
 
 #begin Biomes/Jungle.json
 /importer:BiomeImporter

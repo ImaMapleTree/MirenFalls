@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using MirenFalls.Internal.Graphics;
 using MirenFalls.Internal.Map;
+using MirenFalls.Internal.PipelineExtension.Shells;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace MirenFalls.Internal.Utils {
-    static class Adapters {
+    public static class Adapters {
         public static float DoubleToFloat(double d) {
             return (float)d;
         }
@@ -20,6 +21,10 @@ namespace MirenFalls.Internal.Utils {
             Tile tile = new Tile(Resources.loadContent<CompressibleTexture>(Path.Combine("Biomes/HeightTiles/Textures", dict["name"])), Collision.None);
             Range heightRange = Range.FromString(dict["heightRange"]);
             return new HeightTile(tile, heightRange);
+        }
+
+        public static HeightTile RefToHeightTile(string reference) {
+            return Resources.loadContent<HeightTile>(Path.Combine("Biomes/HeightTiles/", reference));
         }
 
         public class RangeConverter : JsonConverter<Range> {
@@ -37,7 +42,6 @@ namespace MirenFalls.Internal.Utils {
         public class TextureConverter : JsonConverter<CompressibleTexture> {
             public override CompressibleTexture Read(ref Utf8JsonReader reader, System.Type typeToConvert, JsonSerializerOptions options) {
                 string texturePath = reader.GetString();
-                Debug.Log("HELLO!?!?!");
                 return (CompressibleTexture)Texture2D.FromFile(Resources.graphicsDevice, texturePath);
             }
 

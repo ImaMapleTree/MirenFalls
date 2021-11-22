@@ -1,0 +1,5 @@
+﻿{
+  "tileTexture": "lake_water.png",
+  "directory": "Textures",
+  "range": "[0.3, 0.35]"
+}

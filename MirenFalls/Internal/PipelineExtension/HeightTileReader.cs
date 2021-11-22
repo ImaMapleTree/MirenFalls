@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using MirenFalls.Internal.Graphics;
 using MirenFalls.Internal.Map;
 using MirenFalls.Internal.Utils;
@@ -11,8 +12,11 @@ namespace MirenFalls.Internal.PipelineExtension {
             if (heightTile == null) {
                 heightTile = new HeightTile();
             }
+            Debug.Log(input.AssetName);
 
-            heightTile.tile = input.ContentManager.Load<Tile>(input.ReadString());
+            string texturePath = input.ReadString();
+
+            heightTile.tile = new Tile(new CompressibleTexture(texturePath), Collision.None);
             heightTile.heightRange = Range.FromString(input.ReadString());
             return heightTile;
         }

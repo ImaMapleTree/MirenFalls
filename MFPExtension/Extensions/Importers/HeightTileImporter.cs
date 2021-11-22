@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MFPExtension.Extensions.Importers {
-    [ContentImporter(".json", DefaultProcessor = "HeightTileProcessor", DisplayName = "HeightTile - MFPE")]
-    public class HeightTileImporter : ContentImporter<HeightTile> {
+    [ContentImporter(".path", DefaultProcessor = "HeightTileProcessor", DisplayName = "HeightTile - MFPE")]
+    public class HeightTileImporter : ContentImporter<Dictionary<string, string>> {
 
-        public override HeightTile Import(string filename, ContentImporterContext context) {
-            return JsonLoader.loadJson<HeightTile>(filename);
+        public override Dictionary<string, string> Import(string filename, ContentImporterContext context) {
+            Dictionary<string, string> input = JsonLoader.loadJson<Dictionary<string, string>>(filename);
+            input.Add("filename", filename);
+            return input;
         }
     }
 }

@@ -30,17 +30,12 @@ namespace MirenFalls {
         private MouseState clickState;
         private Random rng = new Random();
 
-        Player testPlayer;
-        CompressibleTexture testTexture1;
-        Texture2D testTexture2;
-        Tile testTexture3;
-
         public Main() {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            map = new GameMap(100, 100); // NOTE: 1000 x 1000 is REALLY big but it's for testing purposes
+            map = new GameMap(1000, 1000); // NOTE: 1000 x 1000 is REALLY big but it's for testing purposes
         }
 
         protected override void Initialize() {
@@ -52,30 +47,25 @@ namespace MirenFalls {
             _graphics.ApplyChanges();
             var ViewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, width, height);
             _camera = new OrthographicCamera(ViewportAdapter);
-            //_camera.ZoomOut(0.955f); // Good settings for viewing the whole map
-            //_camera.Move(new Vector2(5000, 8000));
+            _camera.ZoomOut(0.955f); // Good settings for viewing the whole map
+            _camera.Move(new Vector2(5000, 8000));
             //_camera.ZoomIn(1.3f);
-            
 
+            Pipeline.Initialize(_graphics.GraphicsDevice);
             Resources.Initialize(Content, _graphics.GraphicsDevice); // Passes the content manager to Resources to allow for loading from the content manager
 
 
 
 
-            //map.Initialize("rawr");
-            //testPlayer = new Player("sophia", new Vector2(50, 50));
+            map.Initialize("rawr");
 
-            Pipeline.Initialize(_graphics.GraphicsDevice);
+            
             base.Initialize();
         }
 
         protected override void LoadContent() {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            //testTexture1 = new CompressibleTexture("Content/Tiles/grass2.png");
-            testTexture2 = Texture2D.FromFile(this.GraphicsDevice, "Content/Tiles/ball.png");
-            testTexture3 = Content.Load<Tile>("Tiles/ball");
-            // TODO: use this.Content to load your game content here
+            Resources.loadStatic();
         }
 
         protected override void Update(GameTime gameTime) {
@@ -90,9 +80,6 @@ namespace MirenFalls {
 
             clickState = currentState;
 
-            //testPlayer.MoveUpdate(gameTime, Keyboard.GetState());
-
-            // TODO: Add your update logic here
             base.Update(gameTime);
         }
 
@@ -102,17 +89,13 @@ namespace MirenFalls {
             _frameCounter.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             // TODO: Add your drawing code here
-            //_spriteBatch.Begin(transformMatrix: _camera.GetViewMatrix());
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix: _camera.GetViewMatrix());
 
             var fps = string.Format("FPS: {0}", _frameCounter.AverageFramesPerSecond);
 
             Window.Title = fps;
 
-            //map.Draw(_spriteBatch);
-            //testPlayer.Draw(_spriteBatch);
-            _spriteBatch.Draw(testTexture3.texture, new Vector2(5, 5), Color.White);
-            //_spriteBatch.Draw(testTexture2, new Vector2(50, 50), Color.White);
+            map.Draw(_spriteBatch);
 
             _spriteBatch.End();
             

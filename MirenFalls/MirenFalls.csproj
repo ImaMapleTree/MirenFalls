@@ -38,50 +38,8 @@
     <None Update="Content\Biomes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Content\Biomes\HeightTiles\desert_sand2.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\jungle_dirt.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\jungle_grass.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\grassland_grass.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\grassland_dirt.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\ice0.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\jungle_sand.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\desert_sand1.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\snow0 - Copy.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\taiga_snow.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\taiga_grass.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\jungle_water.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\water0.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\sand0.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\Biomes\HeightTiles\grass0.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Content\Biomes\HeightTiles\desert_water.path">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="Content\Tiles\ball.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

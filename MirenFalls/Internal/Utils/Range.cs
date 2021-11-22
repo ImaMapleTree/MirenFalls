@@ -13,6 +13,10 @@ namespace MirenFalls.Internal.Utils {
         public dynamic max;
         public bool minInclusive;
         public bool maxInclusive;
+
+        public Range() {
+
+        }
         
         public Range(dynamic min, dynamic max, bool minInclusive=true, bool maxInclusive=true) {
             this.min = min;
@@ -38,7 +42,7 @@ namespace MirenFalls.Internal.Utils {
         public bool InRange(dynamic value) {
             bool lesserTruth = minInclusive ? min <= value : min < value;
             bool greaterTruth = maxInclusive ? value <= max : value < max;
-            return (minInclusive && maxInclusive);
+            return (lesserTruth && greaterTruth);
         }
     }
 }

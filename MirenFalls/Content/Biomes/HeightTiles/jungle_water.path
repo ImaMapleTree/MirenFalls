@@ -1,0 +1,5 @@
+﻿{
+  "tileTexture": "swamp_water.png",
+  "directory": "Textures",
+  "range": "[0, 0.35]"
+}

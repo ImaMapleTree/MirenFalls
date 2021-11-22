@@ -1,4 +1,5 @@
-﻿using MirenFalls.Internal.Utils;
+﻿using MirenFalls.Internal.PipelineExtension.Shells;
+using MirenFalls.Internal.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace MirenFalls.Internal.Map {
 
     public class BiomeGenerator {
 
-        List<Biome> biomes = Resources.loadAllContent<Biome>("Biomes");
+        List<Biome> biomes = Resources.biomes;
 
         PerlinNoise temperatureNoise;
         PerlinNoise humidityNoise;
@@ -24,7 +25,6 @@ namespace MirenFalls.Internal.Map {
 
         public Biome GetBiome(int x, int y) {
             float tempValue = temperatureNoise.GetValue(x, y) * 100;
-            //Debug.Log(tempValue);
             float humidityValue = humidityNoise.GetValue(x, y) * 100;
             Biome match = biomes.Find(biome => biome.IsValidTemperature(tempValue) && biome.IsValidHumidity(humidityValue));
             match = match != null ? match : biomes[0];

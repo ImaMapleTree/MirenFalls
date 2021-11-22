@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MirenFalls.Internal.Utils;
 using MirenFalls.Internal.Map;
+using MirenFalls.Internal.PipelineExtension.Shells;
 
 namespace MirenFalls.Internal {
 
@@ -21,6 +22,11 @@ namespace MirenFalls.Internal {
         public static void Initialize(ContentManager IC, GraphicsDevice device) {
             content = IC;
             graphicsDevice = device;
+            biomes = loadAllContent<BiomeShell>("Biomes").ConvertAll<Biome>(shell => new Biome(shell));
+        }
+
+        public static void loadStatic() {
+            
         }
 
         public static T loadContent<T>(string filename) {

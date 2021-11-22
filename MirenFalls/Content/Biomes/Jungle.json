@@ -1,15 +1,15 @@
 ﻿{
   "name": "Jungle",
-  "temperatureRange":  "60..100",
-  "humidityRange":  "60..100",
+  "temperatureRange":  "[60, 100]",
+  "humidityRange":  "[60, 100]",
   "populationDensity": 0,
   "tilesets": [
     "grassland1"
   ],
   "heightTiles": [
     "jungle_grass",
-    "jungle_dirt",
     "jungle_sand",
-    "jungle_water"
+    "jungle_water",
+    "ocean_water"
   ]
 }
