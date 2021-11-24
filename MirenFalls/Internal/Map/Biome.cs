@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using MirenFalls.Internal.Utils;
-using MirenFalls.Internal.Map.Collections;
-using System.IO;
 using MirenFalls.Internal.PipelineExtension.Shells;
 
 namespace MirenFalls.Internal.Map {
@@ -11,7 +9,7 @@ namespace MirenFalls.Internal.Map {
      * Defines ground tiles
      * Defines "tile assets"
      */
-    
+
     public class Biome {
         public string name { get; set; }
         public Range temperatureRange { get; set; }

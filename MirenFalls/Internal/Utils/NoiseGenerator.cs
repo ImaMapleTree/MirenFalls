@@ -29,12 +29,17 @@ namespace MirenFalls.Internal.Utils {
                 this.seed = seed != null ? seed : System.DateTime.Now.ToString();
                 this.octaveOffsets = new Vector2[octaves];
 
+                Debug.Warning(seed);
+
                 Random.InitState(this.seed);
+
+                
 
                 for (int i = 0; i < octaves; i++) {
                     float offsetX = Random.Range(-10000f, 10000f);
                     float offsetY = Random.Range(-10000f, 10000f);
                     octaveOffsets[i] = new Vector2(offsetX, offsetY);
+                    Debug.Log("Offset: " + offsetX);
                 }
 
                 // Calculates the heightest possible noise value WARNING: if the noise map is generating very flat it's probably due to this.
@@ -75,11 +80,61 @@ namespace MirenFalls.Internal.Utils {
                     amplitude *= persistence;
                     frequency *= lacunarity;
                 }
-                // While the predictions should be the max and min height, just as a backup, if there's a value exceeding our min / max then set it as the new min / max.
-                //Debug.Log(noiseHeight);
                 return ExtraMath.InverseLerp(predictedMinHeight, predictedMaxHeight, noiseHeight);
             }
+        }
 
+        public class AbsoluteNoise : Noise {
+            public AbsoluteNoise(float scale, int octaves, float persistence, float lacunarity, string seed = null) : base(scale, octaves, persistence, lacunarity, seed) {
+            }
+
+            public override float GetValue(float x, float y) {
+                float noiseHeight = 0;
+                float amplitude = 1;
+                float frequency = 1;
+                for (int i = 0; i < this.octaves; i++) {
+                    float moddedX = (x / scale * frequency) + (octaveOffsets[i].X / scale * frequency);
+                    float moddedY = (y / scale * frequency) + (octaveOffsets[i].Y / scale * frequency);
+
+
+                    float perlinValue = Math.Abs(ImprovedNoise.Noise(moddedX, moddedY));
+                    noiseHeight += perlinValue * amplitude;
+
+                    amplitude *= persistence;
+                    frequency *= lacunarity;
+                }
+
+                noiseHeight = noiseHeight - (predictedMaxHeight / 2);
+
+                return ExtraMath.InverseLerp(predictedMinHeight, predictedMaxHeight, noiseHeight);
+            }
+        }
+
+        public class CliffNoise : Noise {
+            public CliffNoise(float scale, int octaves, float persistence, float lacunarity, string seed = null) : base(scale, octaves, persistence, lacunarity, seed) {
+            }
+
+            public override float GetValue(float x, float y) {
+                float noiseHeight = 0;
+                float amplitude = 1;
+                float frequency = 1;
+                for (int i = 0; i < this.octaves; i++) {
+                    float moddedX = (x / scale * frequency) + (octaveOffsets[i].X / scale * frequency);
+                    float moddedY = (y / scale * frequency) + (octaveOffsets[i].Y / scale * frequency);
+
+
+                    float perlinValue = ImprovedNoise.Noise(moddedX, moddedY);
+                    perlinValue = perlinValue > -0.08 ? perlinValue : Math.Abs(perlinValue);
+                    noiseHeight += perlinValue * amplitude;
+
+                    amplitude *= persistence;
+                    frequency *= lacunarity;
+                }
+
+                noiseHeight = noiseHeight - (predictedMaxHeight / 2);
+
+                return ExtraMath.InverseLerp(predictedMinHeight, predictedMaxHeight, noiseHeight);
+            }
         }
     }
 }

@@ -7,17 +7,21 @@ using Microsoft.Xna.Framework.Graphics;
 using MirenFalls.Internal.Utils;
 using MirenFalls.Internal.Map;
 using MirenFalls.Internal.PipelineExtension.Shells;
+using MirenFalls.Internal.Core.Collections;
+using Microsoft.Xna.Framework.Input;
 
 namespace MirenFalls.Internal {
 
     // Static resource manager and my solution to passing the default ContentManager in a static way.
     // Some niche functions such as loading from JSON, will also contain static references to loaded content initialized from the main game body. (Main.cs)
-
     public static class Resources {
 
         public static ContentManager content = null;
         public static GraphicsDevice graphicsDevice;
         public static List<Biome> biomes;
+
+        public static Bidictionary<string, Keys> keyConverter;
+
 
         public static void Initialize(ContentManager IC, GraphicsDevice device) {
             content = IC;
@@ -54,5 +58,15 @@ namespace MirenFalls.Internal {
             string jsonString = File.ReadAllText(filename);
             return JsonSerializer.Deserialize<T>(jsonString);
         }
+
+        public static void loadKeyConverter() {
+
+
+
+        }
+
+
+
+
     }
 }

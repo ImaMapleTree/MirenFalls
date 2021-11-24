@@ -1,16 +1,17 @@
-﻿using System;
+﻿using MirenFalls.Internal.Map;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MirenFalls.Internal.Map.Collections {
+namespace MirenFalls.Internal.Graphics {
     public class Tileset {
         public List<HeightTile> biomeTiles;
         public List<MultiTile> biomeObjects;
 
 
         public Tileset() {
-            this.biomeTiles = new List<HeightTile>();
-            this.biomeObjects = new List<MultiTile>();
+            biomeTiles = new List<HeightTile>();
+            biomeObjects = new List<MultiTile>();
         }
 
         public Tileset(List<HeightTile> biomeTiles, List<MultiTile> biomeObjects) {
@@ -19,11 +20,11 @@ namespace MirenFalls.Internal.Map.Collections {
         }
 
         public void AddHeightTile(HeightTile tile) {
-            this.biomeTiles.Add(tile);
+            biomeTiles.Add(tile);
         }
 
         public void AddMultiTile(MultiTile multiTile) {
-            this.biomeObjects.Add(multiTile);
+            biomeObjects.Add(multiTile);
         }
 
     }

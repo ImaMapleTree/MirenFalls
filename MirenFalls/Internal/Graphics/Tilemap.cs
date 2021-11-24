@@ -1,23 +1,24 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MirenFalls.Internal.Core;
+using MirenFalls.Internal.Core.Collections;
 using MirenFalls.Internal.Map;
-using MirenFalls.Internal.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MirenFalls.Internal.Graphics {
     public class Tilemap {
 
-        private Tile[,] tileArray;
+        private ShiftableArray<Tile> tileArray;
         public int width;
         public int height;
+
+        public Vector2 tileSize = new Vector2(16, 16);
+
+        public Vector2 drawPosition;
         
         public Tilemap(int width, int height) {
             this.width = width;
             this.height = height;
-            tileArray = new Tile[width, height];
+            tileArray = new ShiftableArray<Tile>(width, height);
         }
 
         public void AddTile(int x, int y, Tile tile) {
@@ -44,7 +45,12 @@ namespace MirenFalls.Internal.Graphics {
         }
 
         public void ClearTiles() {
-            tileArray = new Tile[width, height];
+            tileArray = new ShiftableArray<Tile>(width, height);
+        }
+
+        public void Shift(int x, int y) {
+            tileArray.Shift(-x, y);
+            drawPosition += new Vector2(tileSize.X * x, tileSize.Y * y);
         }
 
         public void Draw(SpriteBatch spritebatch) {
@@ -52,7 +58,7 @@ namespace MirenFalls.Internal.Graphics {
                 for (int y = 0; y < height; y++) {
                     Tile tile = GetTile(x, y);
                     if (tile != null) {
-                        Vector2 drawPos = new Vector2(x, y) * tile.size;
+                        Vector2 drawPos = new Vector2(x, y) * tile.size + drawPosition;
                         spritebatch.Draw(tile.texture, drawPos, Color.White);
                     }
                 }

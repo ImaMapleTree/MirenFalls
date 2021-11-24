@@ -16,8 +16,8 @@
 #---------------------------------- Content ---------------------------------#
 
 #begin Animations/Characters/sophia.sf
-/importer:SpriteSheetImporter
-/processor:SpriteSheetProcessor
+/importer:AnimationImporter
+/processor:AnimationProcessor
 /build:Animations/Characters/sophia.sf
 
 #begin Biomes/Desert.json

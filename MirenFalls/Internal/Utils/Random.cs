@@ -20,7 +20,7 @@ namespace MirenFalls.Internal.Utils {
         }
 
         public static void InitState(string seed) {
-            InitState(seed.GetHashCode());
+            InitState(seed.GetDeterministicHashCode());
         }
 
         /// <summary>

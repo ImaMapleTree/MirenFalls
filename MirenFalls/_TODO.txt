@@ -1,53 +1,21 @@
 ﻿Hello Hello! Here's my TODO list that I think is a good idea if we remember to keep this updated I'll start ^-^
 
-IMPORTANT TODO & ISSUES:
---------------------------------------------------------------------
-11/19/2021 - 4:36PM: FIX MAIN.CS
-Issue:
-CompressibleTexture is not loading from Content.Load due to a null reference I've done extensive debugging but have no clue where this is being thrown. And I am giving up for now.
-
-
 ---------------------------------------------------------------------
 TODO:
 -Streamline a format for the TODO file beacuse formatting is nice
 
--Determine which PerlinNoise function is more efficient (ImprovedNoise vs Noise2D)
-
 -Write more code docs because I didn't do any of that lol (sorry)
-
--Fix Utils.cs
 
 -Name and define "tile assets" (multi-tiles) because I don't know what to call them and it's bothering me
 
--Better organize skeleton? I think the skeleton isn't bad but you're right now an outsider so LMK if there's anything that can be improved... it's a bit annoying to improve though
-because visual studio doesn't refactor the namespace when moving files (from what I can tell) basically, if you do end up moving it make sure you fix the namespace and then errors in the compiler
+-Cache the procedural generation (look at Procedural.cs for more info)?? This might not be the case anymore
 
--Remove individual tiles and either make a custom atlas class (probably definitely not because I hate pipeline extensions- don't bother looking it up) or just use tilesets
+-Modify GameMap tile array to have a custom tile class (or struct) that holds biome information
 
--Add real procedural generation and not just on generation
+-Finish bidictionary
 
--Cache the procedural generation (look at Procedural.cs for more info)
+-Add keyboard config
+
+-Fix sprite factory to match sprite sheet json
+
 --------------------------------------------------------------------
-
---------------------------------------------------------------------
-11/19/2021 - 4:00AM
-COMPLAINTS:
-New section of the TODO file! The complaints sections (hooray!)
-
-I spent the last 4 hours trying to add a player animation using Monogame Extended's OWN documentation on animations
-(Monogame Extended is just an extra library with a few useful features)
-But when I would try to import the resource (I'll teach you how to do that later) it would throw me an error and was confused on where the file was
-so I was like "okay fine I'll build my own file importer because it's not that hard" and it wouldn't be that hard if the format for .SF file actually matched
-the formatting they have hard-coded. But of course it doesn't so I had to make my own adapter classes to go from the .SF formatting to the formatting used in the documentation
-and that took another hour or so because of a bunch of trial and error as the Pipeline Importer already sucks as a tool anyways and provides no actual debugging info haha
-
-And so I did all of that and finally got it working to where the game complies with no errors but the whole animation system doesn't even work in the first place and the sprite
-just sits there without actually animating so I did 4 hours of work for nothing and now I am angry and now I have to build my own animation system tomorrow.
-
-TL;DR Monogame Extended is a scam and 99% of the features don't work but the features that do work are amazing so we're keeping it
---------------------------------------------------------------------
-
-
-Because things went really well and puzzles don't really work in a text format I'll just give you the key:
-(this is really cringe so read the file at your own.. risk?)
-key: headsetrawr

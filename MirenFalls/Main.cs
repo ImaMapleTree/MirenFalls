@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
 using MirenFalls.Internal;
 using MirenFalls.Internal.Map;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
-using MirenFalls.Internal._TEST;
-using MirenFalls.Internal.Graphics;
 using MirenFalls.Internal.Core;
+using MirenFalls.Internal.Managers;
+using MirenFalls.Internal.Utils;
 
 namespace MirenFalls {
 
@@ -28,74 +27,140 @@ namespace MirenFalls {
         private Internal.Utils.FrameCounter _frameCounter = new Internal.Utils.FrameCounter();
         private OrthographicCamera _camera;
         private MouseState clickState;
-        private Random rng = new Random();
+        private System.Random rng = new System.Random();
+        private string cameraKey = "Initial";
+
+        private OrthographicCamera mainCamera;
+        private OrthographicCamera largeCamera;
+
+        private Player sophia;
+        private VectorInt lastPos;
+
+        private int mapWidth;
+        private int mapHeight;
+
 
         public Main() {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            map = new GameMap(1000, 1000); // NOTE: 1000 x 1000 is REALLY big but it's for testing purposes
+            mapWidth = 50;
+            mapHeight = 50;
+
+
+            map = new GameMap(mapWidth, mapHeight); // NOTE: 1000 x 1000 is REALLY big but it's for testing purposes
         }
 
         protected override void Initialize() {
             int width = 1366;
-            int height = 768;
+            int height = 1000; //768
             _graphics.PreferredBackBufferHeight = height;
             _graphics.PreferredBackBufferWidth = width;
-            //_graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
-            var ViewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, width, height);
-            _camera = new OrthographicCamera(ViewportAdapter);
-            _camera.ZoomOut(0.955f); // Good settings for viewing the whole map
-            _camera.Move(new Vector2(5000, 8000));
-            //_camera.ZoomIn(1.3f);
 
             Pipeline.Initialize(_graphics.GraphicsDevice);
             Resources.Initialize(Content, _graphics.GraphicsDevice); // Passes the content manager to Resources to allow for loading from the content manager
 
 
+            GameSettings.Initialize();
+
+
+            mainCamera = CameraManager.Initialize(Window, GraphicsDevice);
+            mainCamera.Move(new Vector2(500, 500));
+            mainCamera.ZoomOut(0.2f);
+
+            largeCamera = CameraManager.CreateCamera();
+
+            largeCamera.ZoomOut(0.955f); // Good settings for viewing the whole map
+            largeCamera.Move(new Vector2(5000, 8000));
+
+            //CameraManager.AddCamera("Initial", largeCamera);
+
 
 
             map.Initialize("rawr");
 
-            
+
             base.Initialize();
         }
 
         protected override void LoadContent() {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Resources.loadStatic();
+
+            sophia = new Player("sophia", new Vector2(mapWidth*8, mapHeight*8));
+            lastPos = sophia.tilePosition;
         }
 
         protected override void Update(GameTime gameTime) {
+            KeyboardState keyState = Keyboard.GetState();
+
+            float cameraSpeed = 400;
+
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             MouseState currentState = Mouse.GetState();
+            
 
             if (currentState.LeftButton == ButtonState.Pressed && clickState.LeftButton == ButtonState.Released) {
-                map.Initialize(rng.Next().ToString());
+                //map.Initialize(rng.Next().ToString());
+                map.Shift(new VectorInt(0, 1));
+            }
+
+            if (currentState.RightButton == ButtonState.Pressed && clickState.RightButton == ButtonState.Released) {
+                CameraManager.SetActiveCamera(cameraKey);
+                if (cameraKey.Equals("Player2")) cameraKey = "Initial";
+                else if (cameraKey.Equals("Initial")) cameraKey = "Player";
+                else cameraKey = "Player2";
+            }
+
+            if (keyState.IsKeyDown(Keys.LeftShift)) {
+                cameraSpeed = 800;
+            }
+
+            if (keyState.IsKeyDown(Keys.Left)) {
+                mainCamera.Move(new Vector2(-cameraSpeed * deltaTime, 0));
+            } 
+            if (keyState.IsKeyDown(Keys.Right)) {
+                mainCamera.Move(new Vector2(cameraSpeed * deltaTime, 0));
+            } 
+            if (keyState.IsKeyDown(Keys.Up)) {
+                mainCamera.Move(new Vector2(0, -cameraSpeed * deltaTime));
+            }
+            if (keyState.IsKeyDown(Keys.Down)) {
+                mainCamera.Move(new Vector2(0, cameraSpeed * deltaTime));
             }
 
             clickState = currentState;
+
+            sophia.MoveUpdate(gameTime, keyState);
+
+            if (sophia.tilePosition != lastPos) {
+                map.Shift(sophia.tilePosition - lastPos);
+            }
+
+            lastPos = sophia.tilePosition;
+
+            _frameCounter.Update(deltaTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime) {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            _frameCounter.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
-
-            // TODO: Add your drawing code here
-            _spriteBatch.Begin(transformMatrix: _camera.GetViewMatrix());
+            _spriteBatch.Begin(transformMatrix: CameraManager.GetMatrix(), samplerState: SamplerState.PointClamp);
 
             var fps = string.Format("FPS: {0}", _frameCounter.AverageFramesPerSecond);
 
             Window.Title = fps;
 
             map.Draw(_spriteBatch);
+            sophia.Draw(_spriteBatch);
 
             _spriteBatch.End();
             
